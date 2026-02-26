@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>Age Calculator</h3>
+
+<input type="date" id="dob">
+<button onclick="age()">Calculate</button>
+
+<p id="result"></p>
+
+<script>
+function age() {
+    const dobInput = document.getElementById("dob").value;
+    if (!dobInput) {
+        document.getElementById("result").innerText = "Please select a date";
+        return;
+    }
+    const dob = new Date(dobInput);
+    const today = new Date();
+    const diffTime = Math.abs(today - dob);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    document.getElementById("result").innerText =
+        "You have lived for approximately " + diffDays + " days.";
+}
+</script>
+
+</body>
+</html>
